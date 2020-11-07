@@ -5,20 +5,16 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
+root.tk.call('tk', 'scaling', 1.0)
 
 style = ttk.Style()
-style.configure("T.TFrame", borderwidth = 10, relief = "sunken")
+style.configure("TButton", foreground="green", padding=(3, 3, 12, 12), font=("Consolas", 12))
+style.configure("TFrame", background="black")
 
-content = ttk.Frame(root).grid()
-numbers = ttk.Frame(content).grid(row = 1, column = 0)
-#options = ttk.Frame(content, borderwidth=5, relief="sunken", width=200, height=100).grid(row = 1, column = 1)
+content = ttk.Frame(root, padding = (10, 10, 10, 10)).grid(row=0, column=0)
+styledButton = ttk.Button(content, text="Style Testing").grid(row=0, column=0)
+styledEntry = ttk.Entry(content).grid(row=1, column = 0, sticky="WE")
+textb = Text(content).grid(row=2, column=0, sticky="WE")
 
-decimalFrame = ttk.Frame(numbers, style="T.TFrame", padding = (3, 3, 12, 12)).grid(row = 0, column = 0)
-decimalLabel = ttk.Label(decimalFrame, text = "Decimal").grid(row = 0, column = 0)
-decimalEntry = ttk.Entry(decimalFrame, textvariable="decimal").grid(row = 1, column = 0)
-
-#hexadecimalEntry = ttk.Entry(numbers, textvariable="hexadecimal").grid(row = 1, column = 0)
-
-#binaryEntry = ttk.Entry(numbers, textvariable="Binary").grid(row = 2, column = 0)
 
 root.mainloop()
